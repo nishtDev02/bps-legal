@@ -6,6 +6,11 @@ const defaultLocale = "en";
 export function proxy(request){
     const pathname = request.nextUrl.pathname;
 
+    // take admin route out of locale 
+    if(pathname.startsWith("/admin")){
+        return NextResponse.next(); // if admin route, nothing to do
+    }
+
     // check if pathname is already starting with any locale
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
@@ -23,6 +28,6 @@ export function proxy(request){
 export const config = {
     matcher: [
         // match everything except, api routes, _next internal files, aur static files
-        "/((?!api|_next/static|_next/image|favicon.ico).*)",
+        "/((?!api|admin|_next/static|_next/image|favicon.ico).*)",
     ]
 }
