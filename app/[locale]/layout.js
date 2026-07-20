@@ -19,7 +19,7 @@ export const metadata = {
 
 export default async function RootLayout({ children, params }) {
   const { locale } = await params;
-  // console.log(locale);
+  console.log(locale);
   return (
     <div className="min-h-screen">
       <Navbar locale={locale} />
