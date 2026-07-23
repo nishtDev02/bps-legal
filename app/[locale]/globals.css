@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+:root {
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F5F5F5F5;
+  --color-text: #111111;
+  --color-text-secondary: #2D2D2D;
+  --color-accent: #E8B84B;
+  --font-body: "Times New Roman", Times, serif;
+}
+
+.dark {
+  --color-bg: #111111;
+  --color-bg-secondary: #2D2D2D;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #F5F5F5F5;
+  --color-accent: #E8B84B;
+}
+
 body {
   font-family: var(--font-body);
 }

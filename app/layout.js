@@ -5,15 +5,11 @@ const playFair = Playfair_Display({
   subsets: ["latin"],
 });
 
-const roboto = Roboto({
-  variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
+
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${playFair.variable} ${roboto.variable}`}>
+    <html lang="en" className={`${playFair.variable}`}>
       <body>{children}</body>
     </html>
   );

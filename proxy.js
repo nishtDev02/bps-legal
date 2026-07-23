@@ -28,6 +28,6 @@ export function proxy(request){
 export const config = {
     matcher: [
         // match everything except, api routes, _next internal files, aur static files
-        "/((?!api|admin|_next/static|_next/image|favicon.ico).*)",
+        "/((?!api|admin|images|_next/static|_next/image|favicon.ico).*)",
     ]
 }
