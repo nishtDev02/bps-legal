@@ -30,3 +30,104 @@ h5,
 h6 {
   font-family: var(--font-heading);
 }
+
+@keyframes shine {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+
+/* Subtle floating for decorative accents */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+/* Animated gold diagonal grid (hero bg) */
+@keyframes drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+/* Underline draw for headings */
+@keyframes draw-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Pulsing gold ring for contact CTA */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(232, 184, 75, 0.55); }
+  70% { box-shadow: 0 0 0 18px rgba(232, 184, 75, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 184, 75, 0); }
+}
+
+/* Reusable utility classes */
+.shine-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shine-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  transition: transform 0.1s ease;
+  pointer-events: none;
+}
+.shine-btn:hover::before {
+  animation: shine 1s ease forwards;
+}
+
+.float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+.pulse-ring {
+  animation: pulse-ring 2.2s infinite;
+}
+
+.gold-grid-bg {
+  background-image:
+    linear-gradient(rgba(232, 184, 75, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 184, 75, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: drift 20s linear infinite;
+}
+
+/* Animated link underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #E8B84B, #C9A227);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Vertical rotating tagline */
+.vertical-tag {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.4em;
+}
+
+/* Card 3D tilt hover */
+.tilt-card {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s;
+  transform-style: preserve-3d;
+}
+.tilt-card:hover {
+  transform: translateY(-6px) rotateX(3deg) rotateY(-3deg);
+}
