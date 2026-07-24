@@ -28,6 +28,10 @@ const blogSchema = new Schema({
         type: String,
         required: true
     },
+    coverImage:{
+        type: String,
+        default: "/images/blog-placeholder.jpg"
+    },
     author: {
         type: String,
         default: "Adv. Bhanu Pratap Sagar"
