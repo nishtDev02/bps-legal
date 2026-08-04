@@ -18,7 +18,7 @@ const item = {
 
 export default function HeroSection({ locale, t }) {
   return (
-    <section className="relative min-h-screen overflow-hidden text-white px-6 md:px-16 py-24 md:py-32 flex items-center justify-center">
+    <section className="relative min-h-screen overflow-hidden text-white px-6 md:px-16 pt-36 pb-16 md:py-32 flex items-center justify-center">
       <div
         className="absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{
