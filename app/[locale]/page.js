@@ -4,6 +4,7 @@ import practiceAreas from "@/lib/practiceAreas";
 import Blog from "@/models/Blog";
 
 import HeroSection from "@/components/home/HeroSection";
+import TrustIndicators from "@/components/home/TrustIndicators";
 import AboutPreview from "@/components/home/AboutPreview";
 import PracticeAreasGrid from "@/components/home/PracticeAreasGrid";
 import BlogsGrid from "@/components/home/BlogsGrid";
@@ -21,6 +22,7 @@ export default async function HomePage({ params }) {
   return (
     <>
       <HeroSection locale={locale} t={t} />
+      <TrustIndicators />
       <AboutPreview locale={locale} t={t} />
       <PracticeAreasGrid locale={locale} t={t} practiceAreas={practiceAreas} />
       <BlogsGrid locale={locale} t={t} blogsData={blogsData} />

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import TopBar from "@/components/TopBar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,10 +23,16 @@ export default async function RootLayout({ children, params }) {
   const { locale } = await params;
   console.log(locale);
   return (
-    <div className="min-h-screen">
-      <TopBar />
-      <Navbar locale={locale} />
+    <>
+      <div className="fixed top-0 left-0 w-full z-50">
+        <TopBar />
+        <Navbar locale={locale} />
+      </div>
+
       {children}
-    </div>
+
+      <Footer locale={locale} />
+      
+    </>
   );
 }

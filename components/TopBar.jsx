@@ -30,39 +30,36 @@ const socials = [
 
 const TopBar = () => {
   return (
-    <div className="relative border-b border-(--color-accent)/25 bg-(--color-bg) overflow-hidden">
-      {/* animated gold accent line */}
+    <div className="relative border-b border-[#C6A75E]/25 bg-(--color-bg) overflow-hidden">
       <motion.div
         aria-hidden
-        className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-[#E8B84B] via-[#C9A227] to-transparent"
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
         style={{ transformOrigin: "top" }}
+        className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-[#C6A75E] to-transparent"
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
-        {/* left: contact quick info */}
         <div className="hidden sm:flex items-center gap-6 text-xs text-(--color-text-secondary)">
           <motion.a
             href="tel:+919027380268"
-            whileHover={{ x: 3, color: "#E8B84B" }}
+            whileHover={{ x: 3, color: "#C6A75E" }}
             className="flex items-center gap-1.5"
           >
-            <Phone size={13} className="text-(--color-accent)" />
+            <Phone size={13} className="text-[#C6A75E]" />
             +91 90273 80268
           </motion.a>
           <motion.a
             href="mailto:contact@bpslegal.com"
-            whileHover={{ x: 3, color: "#E8B84B" }}
+            whileHover={{ x: 3, color: "#C6A75E" }}
             className="flex items-center gap-1.5"
           >
-            <Mail size={13} className="text-(--color-accent)" />
+            <Mail size={13} className="text-[#C6A75E]" />
             contact@bpslegal.com
           </motion.a>
         </div>
 
-        {/* right: socials */}
         <div className="flex items-center gap-2">
           {socials.map((s, i) => (
             <motion.a
@@ -75,18 +72,9 @@ const TopBar = () => {
               transition={{ delay: 0.2 + i * 0.08 }}
               whileHover={{ y: -2, scale: 1.15, rotate: -6 }}
               whileTap={{ scale: 0.9 }}
-              className="p-1.5 rounded-full text-(--color-text-secondary) hover:text-[#111111] hover:bg-[#E8B84B] transition-colors"
+              className="p-1.5 rounded-full text-(--color-text-secondary) hover:text-[#1F2A44] hover:bg-[#C6A75E] transition-colors"
             >
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 {s.svg}
               </svg>
             </motion.a>

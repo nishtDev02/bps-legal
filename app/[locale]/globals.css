@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #FFFFFF;
-  --color-bg-secondary: #F5F5F5F5;
-  --color-text: #111111;
-  --color-text-secondary: #2D2D2D;
-  --color-accent: #E8B84B;
+  --color-bg: #E8DCC8;              /* Warm Beige */
+  --color-bg-secondary: #F5EDDF;    /* Lighter beige for alt sections */
+  --color-text: #1F2A44;            /* Navy */
+  --color-text-secondary: #4A5675;  /* Softer navy */
+  --color-accent: #C6A75E;          /* Soft Gold */
+  --color-navy: #1F2A44;
+  --color-beige: #E8DCC8;
   --font-body: "Times New Roman", Times, serif;
 }
 
 .dark {
-  --color-bg: #111111;
-  --color-bg-secondary: #2D2D2D;
-  --color-text: #FFFFFF;
-  --color-text-secondary: #F5F5F5F5;
-  --color-accent: #E8B84B;
+  --color-bg: #1F2A44;              /* Navy */
+  --color-bg-secondary: #2A3654;    /* Lighter Navy */
+  --color-text: #E8DCC8;            /* Warm Beige */
+  --color-text-secondary: #B8B0A0;  /* Softer beige */
+  --color-accent: #C6A75E; 
 }
 
 body {
@@ -130,4 +132,73 @@ h6 {
 }
 .tilt-card:hover {
   transform: translateY(-6px) rotateX(3deg) rotateY(-3deg);
+}
+
+
+
+
+/* Gold grid texture overlay */
+.gold-grid-bg {
+  background-image:
+    linear-gradient(rgba(198, 167, 94, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(198, 167, 94, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Vertical rotated text */
+.vertical-tag {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.2em;
+}
+
+/* Slow floating animation for decorative border */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+/* Primary gold button */
+.btn-primary-gold {
+  background-color: #C6A75E;
+  color: #1F2A44;
+  transition: opacity 0.2s ease;
+}
+.btn-primary-gold:hover {
+  opacity: 0.9;
+}
+
+/* Secondary outline button */
+.btn-secondary-outline {
+  border: 1.5px solid #FFFFFF;
+  color: #FFFFFF;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+.btn-secondary-outline:hover {
+  background: #FFFFFF;
+  color: #1F2A44;
+}
+
+/* Shine sweep effect on hover */
+.shine-btn {
+  position: relative;
+  overflow: hidden;
+}
+.shine-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+.shine-btn:hover::before {
+  left: 125%;
 }

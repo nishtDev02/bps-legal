@@ -12,7 +12,7 @@ const item = {
 
 export default function AboutIntro({ t }) {
   return (
-    <section className="relative bg-(--color-bg-secondary) px-6 md:px-16 py-20 md:py-28 overflow-hidden">
+    <section className="relative bg-(--color-bg-secondary) px-6 md:px-16 pt-50 pb-20 md:pb-28 overflow-hidden">
       {/* Animated gold grid drift */}
       <div className="absolute inset-0 gold-grid-bg opacity-30 pointer-events-none" />
 
