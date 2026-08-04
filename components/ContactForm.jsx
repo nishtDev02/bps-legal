@@ -91,6 +91,9 @@ const ContactForm = ({ locale, t }) => {
             value={formData.phone}
             onChange={handleChange}
             required
+            pattern="[6-9][0-9]{9}"
+            maxLength={10}
+            title="Enter a valid 10-digit mobile number"
             className="w-full px-4 py-3 rounded-md border border-[#1F2A44]/15 bg-white text-[#1F2A44] focus:outline-none focus:border-[#C6A75E] transition"
           />
         </div>
