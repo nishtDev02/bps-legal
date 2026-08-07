@@ -45,7 +45,7 @@ export default function PracticeAreasGrid({ locale, t, practiceAreas }) {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {practiceAreas.map((area, i) => {
-            const Icon = iconMap[area.icon];
+            const Icon = iconMap[area.icon] || Shield; // Default to Shield if icon not found
             return (
               <motion.div key={area.slug} variants={card}>
                 <Link
