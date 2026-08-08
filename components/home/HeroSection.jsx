@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
+import HeroCarousel from "../HeroCarousel";
 
 const container = {
   hidden: {},
@@ -19,16 +20,17 @@ const item = {
 export default function HeroSection({ locale, t }) {
   return (
     <section className="relative min-h-screen overflow-hidden text-white px-6 md:px-16 pt-36 pb-16 md:py-32 flex items-center justify-center">
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{
           backgroundImage: "url('/images/background-image.jpg')",
           filter: "blur(3px) grayscale(60%) brightness(0.7)", // Added grayscale & brightness tinting
           transform: "scale(1.05)",
         }}
-      />
+      /> */}
+      <HeroCarousel />
 
-      <div className="absolute inset-0 bg-[#1F2A44]/75 pointer-events-none" />
+      <div className="absolute inset-0 bg-[#1F2A44]/70 pointer-events-none" />
       <div className="absolute inset-0 gold-grid-bg opacity-30 pointer-events-none" />
 
       <motion.div
