@@ -30,6 +30,9 @@ const HeroCarousel = () => {
         style={{
             backgroundImage: `url('${src}')`,
             filter: "blur(2px)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
             transform: "scale(1.05)"
         }}
         />

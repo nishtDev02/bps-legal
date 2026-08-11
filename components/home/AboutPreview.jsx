@@ -26,10 +26,10 @@ export default function AboutPreview({ locale, t }) {
           {/* Photo Box Container */}
           <div className="relative aspect-4/5 w-full rounded-xl overflow-hidden bg-(--color-bg-secondary) border border-[#E8B84B]/20 shadow-2xl">
             <Image
-              src="/images/advocate-photo.jpeg" // CHANGE THIS TO YOUR IMAGE PATH
+              src="/images/advocate-photo-2.png" // CHANGE THIS TO YOUR IMAGE PATH
               alt="Profile Photo"
               fill
-              className="object-cover"
+              className="object-contain"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </div>
