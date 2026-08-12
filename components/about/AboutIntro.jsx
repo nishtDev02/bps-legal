@@ -1,85 +1,110 @@
 "use client";
-import { motion } from "framer-motion";
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
-};
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useRef } from "react";
 
 export default function AboutIntro({ t }) {
+  const containerRef = useRef(null);
+  
+  // Parallax effect for image
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+
   return (
-    <section className="relative bg-(--color-bg-secondary) px-6 md:px-16 pt-50 pb-20 md:pb-28 overflow-hidden">
-      {/* Animated gold grid drift */}
-      <div className="absolute inset-0 gold-grid-bg opacity-30 pointer-events-none" />
-
-      {/* Decorative diagonal gold lines */}
-      <motion.div
-        aria-hidden
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-        style={{ transformOrigin: "left" }}
-        className="absolute top-14 left-0 h-px w-44 bg-linear-to-r from-[#E8B84B] to-transparent"
-      />
-      <motion.div
-        aria-hidden
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-        style={{ transformOrigin: "right" }}
-        className="absolute bottom-14 right-0 h-px w-60 bg-linear-to-l from-[#E8B84B] to-transparent"
+    <section 
+      ref={containerRef}
+      className="relative bg-[#FAF6EF] text-[#101828] px-6 md:px-16 pt-32 pb-24 md:pt-30 md:pb-25 overflow-hidden"
+    >
+      {/* Soft Wine-Tinted Radial Glow Wash (Top-Right) */}
+      <div 
+        className="absolute top-0 right-0 w-125 h-125 pointer-events-none opacity-10"
+        style={{
+          background: "radial-gradient(circle at top right, #6E2C3E 0%, transparent 70%)"
+        }}
       />
 
-      {/* Floating ring */}
-      <div className="absolute -top-16 right-16 w-40 h-40 border-2 border-[#E8B84B]/15 rounded-full float-slow pointer-events-none" />
+      <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center z-10">
+        
+        {/* LEFT COLUMN: 55% Split */}
+        <div className="lg:col-span-7 space-y-6 text-left">
+          
+          {/* Eyebrow Tag */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-start gap-1"
+          >
+            <span className="text-[#6E2C3E] text-[13px] font-semibold uppercase tracking-[2px]">
+              THE PRACTICE BEHIND BPS LEGAL
+            </span>
+            <div className="h-0.5 w-6 bg-[#C6A75E]" />
+          </motion.div>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        className="relative max-w-4xl mx-auto text-center space-y-6"
-      >
-        <motion.div variants={item} className="inline-flex items-center gap-2 justify-center">
-          <span className="h-px w-8 bg-[#E8B84B]" />
-          <span className="text-[#E8B84B] uppercase tracking-[0.3em] text-xs font-semibold">
-            About
-          </span>
-          <span className="h-px w-8 bg-[#E8B84B]" />
-        </motion.div>
+          {/* Main Heading (Two-part statement) */}
+          <div className="space-y-1">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="text-4xl md:text-[52px] leading-[1.1] font-semibold text-[#101828] tracking-tight"
+            >
+              Committed to Protecting Your Rights.
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="text-4xl md:text-[52px] leading-[1.1] font-normal italic font-serif text-[#101828] tracking-tight"
+            >
+              Guided by the Law.
+            </motion.h1>
+          </div>
 
-        <motion.h2
-          variants={item}
-          className="relative inline-block text-3xl md:text-5xl font-bold leading-tight"
-        >
-          {t.aboutHeading}
-          <motion.span
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.5 }}
-            style={{ transformOrigin: "left" }}
-            className="absolute -bottom-2 left-0 right-0 mx-auto h-1 w-24 bg-linear-to-r from-[#E8B84B] to-[#C9A227] rounded-full"
-          />
-        </motion.h2>
+          {/* Optional CTA Hint / Subtext */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.45 }}
+            className="pt-4 flex items-center gap-3 text-xs uppercase tracking-widest text-[#101828]/60 font-medium"
+          >
+            <span>Scroll to know more</span>
+            <span className="inline-block animate-bounce">↓</span>
+          </motion.div>
+        </div>
 
-        <motion.p variants={item} className="text-(--color-text-secondary) text-sm md:text-base pt-2">
-          {t.heroCredentials}
-        </motion.p>
+        {/* RIGHT COLUMN: 45% Split (Portrait) */}
+        <div className="lg:col-span-5 relative max-w-md mx-auto lg:max-w-none w-full flex items-center justify-center lg:justify-end mt-6 lg:mt-12">
+          <div className="relative w-full aspect-4/5 max-w-95">
+            
+            {/* Frame-behind-frame depth (1px Gold Hairline Border offset 8px) */}
+            <div className="absolute top-2 left-2 w-full h-full border border-[#C6A75E] rounded-xl pointer-events-none z-0" />
 
-        <motion.p
-          variants={item}
-          className="text-(--color-text-secondary) text-base md:text-lg leading-relaxed max-w-2xl mx-auto"
-        >
-          {t.aboutFullBio}
-        </motion.p>
-      </motion.div>
+            {/* Main Portrait Box */}
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              style={{ y: imageY }}
+              className="relative w-full h-full rounded-xl overflow-hidden z-10 shadow-xl border border-[#101828]/10 bg-[#101828]"
+            >
+              <Image
+                src="/images/advocate-photo-2.png" // UPDATE TO YOUR PHOTO PATH
+                alt="Advocate Bhanu Pratap Sagar"
+                fill
+                className="object-cover contrast-[1.05] brightness-[0.95] grayscale-20" 
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                priority
+              />
+            </motion.div>
+          </div>
+        </div>
+
+      </div>
     </section>
   );
 }

@@ -31,7 +31,7 @@ export default function HeroSection({ locale, t }) {
       <HeroCarousel />
 
       <div className="absolute inset-0 bg-[#1F2A44]/70 pointer-events-none" />
-      <div className="absolute inset-0 gold-grid-bg opacity-30 pointer-events-none" />
+      {/* <div className="absolute inset-0 gold-grid-bg opacity-30 pointer-events-none" /> */}
 
       <motion.div
         aria-hidden

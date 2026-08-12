@@ -49,9 +49,12 @@ const Navbar = ({ locale }) => {
   };
 
   // Background: transparent at top only on home page, solid on other pages
-  const navBg = scrolled || !isHome
-    ? "bg-[#1F2A44] shadow-[0_8px_30px_-10px_rgba(31,42,68,0.4)]"
-    : "bg-transparent";
+  // const navBg = scrolled || !isHome
+  //   ? "bg-[#1F2A44] shadow-[0_8px_30px_-10px_rgba(31,42,68,0.4)]"
+  //   : "bg-transparent";
+
+  // always solid now
+  const navBg = "bg-[#1F2A44] shadow-[0_8px_30px_-10px_rgba(31,42,68,0.4)]";
 
   // Text: always white for guaranteed contrast against dark hero / solid navy
   const textColor = "text-white";
