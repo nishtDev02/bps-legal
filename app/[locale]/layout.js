@@ -25,7 +25,7 @@ export default async function RootLayout({ children, params }) {
   return (
     <>
       <div className="fixed top-0 left-0 w-full z-50">
-        <TopBar />
+        {/* <TopBar /> */}
         <Navbar locale={locale} />
       </div>
 
