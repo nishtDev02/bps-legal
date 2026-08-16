@@ -215,7 +215,7 @@ const PracticeAreasListing = ({ locale }) => {
             href={`/${locale}/contact`}
             className="inline-flex items-center gap-2 bg-[#E3C98A] hover:bg-[#d8bc7b] text-[#101828] font-sans font-semibold text-[13px] px-6 py-2.5 rounded-full transition-all duration-300 shrink-0 shadow-md"
           >
-            Schedule Consultation
+            Book Consultation
             <ArrowRight size={14} />
           </Link>
         </motion.div>

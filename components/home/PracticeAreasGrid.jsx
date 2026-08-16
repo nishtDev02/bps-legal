@@ -1,9 +1,15 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Shield, Gavel, Users, Home, ShoppingCart, FileText } from "lucide-react";
+import {
+  Shield, Scale, Key, Heart, Globe, Tag,
+  Briefcase, Handshake, FileSignature, Lightbulb, FileWarning
+} from "lucide-react";
 
-const iconMap = { Shield, Gavel, Users, Home, ShoppingCart, FileText };
+const iconMap = {
+  Shield, Scale, Key, Heart, Globe, Tag,
+  Briefcase, Handshake, FileSignature, Lightbulb, FileWarning,
+};
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.08 } } };
 const card = {

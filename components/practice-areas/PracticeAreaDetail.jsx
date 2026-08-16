@@ -243,7 +243,7 @@ const PracticeAreaDetail = ({ area, locale }) => {
                 href={`/${locale}/contact`}
                 className="group inline-flex items-center gap-2.5 bg-[#6E2C3E] text-[#FAF6EF] font-sans font-semibold text-[14px] px-8 py-3.5 rounded-full shadow-md hover:bg-[#5A2333] hover:shadow-lg transition-all duration-300"
               >
-                <span>Request Private Consultation</span>
+                <span>Book Consultation</span>
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
