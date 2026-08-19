@@ -1,27 +1,47 @@
-import React from "react";
+import { notFound } from "next/navigation";
 import connectDB from "@/lib/db";
 import Blog from "@/models/Blog";
-import { notFound } from "next/navigation";
+import practiceAreas from "@/lib/practiceAreas";
+import ArticleDetail from "@/components/blog/ArticleDetail";
 
-const page = async ({ params }) => {
-  const { locale, slug } = await params;
+const BlogDetailPage = async ({ params }) => {
+  const { slug, locale } = await params;
+
   await connectDB();
-  const blog = await Blog.findOne({ locale: locale, slug: slug });
+
+  const blog = await Blog.findOne({ slug, locale });
 
   if (!blog) {
     notFound();
   }
 
+  const relatedDocs = await Blog.find({
+    category: blog.category,
+    locale: blog.locale,
+    slug: { $ne: blog.slug },
+  })
+    .limit(3)
+    .sort({ createdAt: -1 });
+
   const blogData = JSON.parse(JSON.stringify(blog));
+  const relatedArticles = JSON.parse(JSON.stringify(relatedDocs));
+
+  const matchedArea = practiceAreas.find(
+    (area) => area.title === blog.category
+  );
+  const categoryIcon = matchedArea?.icon || "Tag";
+
+  const currentUrl = `https://bpslegal.com/${locale}/blog/${slug}`;
+
   return (
-    <div>
-      <div>
-        <h1>{blogData.title}</h1>
-        <p>{blogData.category}</p>
-        <p>{blogData.content}</p>
-      </div>
-    </div>
+    <ArticleDetail
+      blog={blogData}
+      categoryIcon={categoryIcon}
+      relatedArticles={relatedArticles}
+      locale={locale}
+      currentUrl={currentUrl}
+    />
   );
 };
 
-export default page;
+export default BlogDetailPage;
