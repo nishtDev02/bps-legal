@@ -4,6 +4,29 @@ import Blog from "@/models/Blog";
 import practiceAreas from "@/lib/practiceAreas";
 import ArticleDetail from "@/components/blog/ArticleDetail";
 
+export async function generateMetadata({ params }) {
+  const { locale, slug } = await params;
+  await connectDB();
+  const blog = await Blog.findOne({ slug, locale });
+
+  if(!blog) {
+    return {
+      title: "Article Not Found"
+    }
+  }
+
+  return {
+    title: blog.title,
+    description: blog.description,
+    openGraph: {
+      title: blog.title,
+      description: blog.description,
+      images: [blog.coverImage],
+    }
+  }
+
+}
+
 const BlogDetailPage = async ({ params }) => {
   const { slug, locale } = await params;
 

@@ -43,7 +43,7 @@ const TopBar = () => {
         animate={{ scaleY: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
         style={{ transformOrigin: "top" }}
-        className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#C6A75E] to-transparent"
+        className="absolute left-0 top-0 h-full w-1 bg-linear-to-b from-[#C6A75E] to-transparent"
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-2 flex items-center justify-between gap-2">
@@ -180,7 +180,7 @@ const Header = ({ locale }) => {
       {/* MAIN NAVBAR */}
       <nav className="bg-[#1F2A44] backdrop-blur-xl transition-all duration-300">
         {/* Accent Gold Top Strip */}
-        <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-[#C6A75E] to-transparent opacity-80" />
+        <div className="h-0.5 w-full bg-linear-to-r from-transparent via-[#C6A75E] to-transparent opacity-80" />
 
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-20">
           {/* Logo */}
@@ -312,7 +312,7 @@ const Header = ({ locale }) => {
               <Search size={16} />
             </button>
 
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
 
             <Link
               style={{

@@ -4,6 +4,11 @@ import officeLocations from "@/lib/officeLocations";
 import langObj from "@/lib/dictionary";
 import { Phone, Mail, MessageCircle, MapPin, Clock, Contact } from "lucide-react";
 
+export const metadata = {
+  title: "Contact Us",
+  description: "Book a confidential legal consultation with Adv. Bhanu Pratap Sagar. Reach out via phone, WhatsApp, or the contact form for a prompt response.",
+};
+
 const ContactPage = async ({ params }) => {
   const { locale } = await params;
   const t = langObj[locale];

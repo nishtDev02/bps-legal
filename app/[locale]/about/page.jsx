@@ -11,6 +11,11 @@ import OurApproach from "@/components/about/OurApproach";
 import OfficeLocations from "@/components/about/OfficeLocations";
 import WhyChooseUs from "@/components/about/WhyChooseUs";
 
+export const metadata = {
+  title: "About Adv. Bhanu Pratap Sagar",
+  description: "Learn about Adv. Bhanu Pratap Sagar's expertise in Criminal Law and Cyber Law, serving clients across Delhi's courts.",
+};
+
 const page = async ({ params }) => {
   const { locale } = await params;
   const t = langObj[locale];
