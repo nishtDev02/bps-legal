@@ -33,13 +33,11 @@ const categories = [
 ];
 
 const inputClass =
-  "w-full px-3.5 py-2.5 rounded-[8px] bg-white border border-[#C6A75E] text-[#1F2A44] text-xs placeholder:text-[#64748B] outline-none focus:ring-2 focus:ring-[#C6A75E]/40 transition-all";
-const labelClass =
-  "block text-[11px] font-bold text-[#1F2A44] uppercase tracking-wider mb-1";
+  "w-full px-4 py-2.5 rounded-md border border-[#C6A75E]/20 bg-[#0D131F]/50 text-[#FAF8F5] placeholder:text-[#FAF8F5]/30 focus:outline-none focus:border-[#C6A75E] transition";
+const labelClass = "block text-sm font-medium mb-1.5 text-[#FAF8F5]/80";
 const sectionClass =
-  "bg-[#FAF8F5] text-[#1F2A44] rounded-[16px] p-6 shadow-2xl shadow-black/40 border border-[#C6A75E]/30 space-y-4 relative";
-const sectionTitleClass =
-  "text-sm font-bold text-[#1F2A44] flex items-center gap-2 border-b border-[#C6A75E]/20 pb-2.5";
+  "bg-[#131B2E]/80 rounded-xl border border-[#C6A75E]/15 p-6 space-y-5";
+  const sectionTitleClass = "text-base font-semibold text-[#FAF8F5] mb-1 flex items-center gap-2";
 
 const BlogForm = ({ initialData, blogId }) => {
   const router = useRouter();
@@ -52,7 +50,7 @@ const BlogForm = ({ initialData, blogId }) => {
     category: initialData?.category || "",
     excerpt: initialData?.excerpt || "",
     content: initialData?.content || "",
-    coverImage: initialData?.coverImage || "",
+    coverImage: initialData?.coverImage || "/images/blog-placeholder.jpg",
     locale: initialData?.locale || "en",
     topic: initialData?.topic || "",
     relevantLaw: initialData?.relevantLaw || "",
@@ -144,7 +142,10 @@ const BlogForm = ({ initialData, blogId }) => {
     >
       {/* 1. BASIC INFO SECTION */}
       <div className={sectionClass}>
-        <h3 className={sectionTitleClass} style={{ fontFamily: "var(--font-heading, serif)" }}>
+        <h3
+          className={sectionTitleClass}
+          style={{ fontFamily: "var(--font-heading, serif)" }}
+        >
           <FileText size={16} className="text-[#C6A75E]" />
           <span>Basic Article Details</span>
         </h3>
@@ -258,10 +259,12 @@ const BlogForm = ({ initialData, blogId }) => {
               <button
                 type="button"
                 onClick={() => open()}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-[#C6A75E] text-[#1F2A44] text-xs font-bold hover:bg-[#C6A75E]/10 transition cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1F2A44] border border-[#C6A75E] bg-white px-3.5 py-2 rounded-lg hover:bg-[#C6A75E] transition-colors duration-200 cursor-pointer"
               >
-                <ImageIcon size={15} className="text-[#C6A75E]" />
-                <span>{formData.coverImage ? "Change Image" : "Upload Image"}</span>
+                <ImageIcon size={15} className="text-black" />
+                <span>
+                  {formData.coverImage ? "Change Image" : "Upload Image"}
+                </span>
               </button>
             )}
           </CldUploadWidget>
@@ -286,7 +289,8 @@ const BlogForm = ({ initialData, blogId }) => {
         {/* Main Content */}
         <div>
           <label className={labelClass}>
-            Main Content (Markdown supported: ## for headings, - for lists) <span className="text-[#C6A75E]">*</span>
+            Main Content (Markdown supported: ## for headings, - for lists){" "}
+            <span className="text-[#C6A75E]">*</span>
           </label>
           <textarea
             name="content"
@@ -303,11 +307,14 @@ const BlogForm = ({ initialData, blogId }) => {
       {/* 2. ARTICLE AT A GLANCE SECTION */}
       <div className={sectionClass}>
         <div>
-          <h3 className={sectionTitleClass} style={{ fontFamily: "var(--font-heading, serif)" }}>
+          <h3
+            className={sectionTitleClass}
+            style={{ fontFamily: "var(--font-heading, serif)" }}
+          >
             <Sparkles size={16} className="text-[#C6A75E]" />
             <span>Article at a Glance</span>
           </h3>
-          <p className="text-[10px] text-[#1F2A44]/60 mt-1">
+          <p className="text-[10px] text-[#FAF8F5]/40 mt-1">
             Optional — Displays in the quick summary box on the article page.
           </p>
         </div>
@@ -342,11 +349,14 @@ const BlogForm = ({ initialData, blogId }) => {
       {/* 3. KEY TAKEAWAYS SECTION */}
       <div className={sectionClass}>
         <div>
-          <h3 className={sectionTitleClass} style={{ fontFamily: "var(--font-heading, serif)" }}>
+          <h3
+            className={sectionTitleClass}
+            style={{ fontFamily: "var(--font-heading, serif)" }}
+          >
             <BookOpen size={16} className="text-[#C6A75E]" />
             <span>Key Takeaways</span>
           </h3>
-          <p className="text-[10px] text-[#1F2A44]/60 mt-1">
+          <p className="text-[10px] text-[#FAF8F5]/40 mt-1">
             Optional — Enter one takeaway point per line.
           </p>
         </div>
@@ -365,11 +375,14 @@ const BlogForm = ({ initialData, blogId }) => {
       {/* 4. RELEVANT SECTIONS */}
       <div className={sectionClass}>
         <div>
-          <h3 className={sectionTitleClass} style={{ fontFamily: "var(--font-heading, serif)" }}>
+          <h3
+            className={sectionTitleClass}
+            style={{ fontFamily: "var(--font-heading, serif)" }}
+          >
             <Tag size={16} className="text-[#C6A75E]" />
             <span>Relevant Sections / Acts Referenced</span>
           </h3>
-          <p className="text-[10px] text-[#1F2A44]/60 mt-1">
+          <p className="text-[10px] text-[#FAF8F5]/40 mt-1">
             Optional — Enter one legal section per line.
           </p>
         </div>
@@ -386,11 +399,14 @@ const BlogForm = ({ initialData, blogId }) => {
       {/* 5. FAQS SECTION */}
       <div className={sectionClass}>
         <div>
-          <h3 className={sectionTitleClass} style={{ fontFamily: "var(--font-heading, serif)" }}>
+          <h3
+            className={sectionTitleClass}
+            style={{ fontFamily: "var(--font-heading, serif)" }}
+          >
             <HelpCircle size={16} className="text-[#C6A75E]" />
             <span>Frequently Asked Questions</span>
           </h3>
-          <p className="text-[10px] text-[#1F2A44]/60 mt-1">
+          <p className="text-[10px] text-[#FAF8F5]/40 mt-1">
             Optional — Add collapsible Q&A items for legal readers.
           </p>
         </div>
@@ -442,9 +458,9 @@ const BlogForm = ({ initialData, blogId }) => {
         <button
           type="button"
           onClick={addFaq}
-          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1F2A44] border border-[#C6A75E] bg-white px-3.5 py-2 rounded-lg hover:bg-[#C6A75E]/10 transition cursor-pointer"
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1F2A44] border border-[#C6A75E] bg-white px-3.5 py-2 rounded-lg hover:bg-[#C6A75E] transition-colors duration-200 cursor-pointer"
         >
-          <Plus size={15} className="text-[#C6A75E]" />
+          <Plus size={15} className="text-black" />
           <span>Add FAQ Item</span>
         </button>
       </div>
@@ -452,11 +468,14 @@ const BlogForm = ({ initialData, blogId }) => {
       {/* 6. TAGS SECTION */}
       <div className={sectionClass}>
         <div>
-          <h3 className={sectionTitleClass} style={{ fontFamily: "var(--font-heading, serif)" }}>
+          <h3
+            className={sectionTitleClass}
+            style={{ fontFamily: "var(--font-heading, serif)" }}
+          >
             <Tag size={16} className="text-[#C6A75E]" />
             <span>Search Tags</span>
           </h3>
-          <p className="text-[10px] text-[#1F2A44]/60 mt-1">
+          <p className="text-[10px] text-[#FAF8F5]/40 mt-1">
             Optional — Enter one keyword per line (do not include `#`).
           </p>
         </div>

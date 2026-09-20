@@ -1,0 +1,1 @@
+Optional — Displays in the quick summary box on the article page.

@@ -39,7 +39,7 @@ const BodySection = ({ eyebrow, heading, text }) => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
-      className="max-w-[720px] mx-auto text-center md:text-left"
+      className="max-w-180 mx-auto text-center md:text-left"
     >
       <div className="inline-flex items-center gap-2 mb-2 justify-center md:justify-start">
         <span className="h-px w-4 bg-[#E3C98A]" />
@@ -72,11 +72,11 @@ const PracticeAreaDetail = ({ area, locale }) => {
     <div className="bg-[#FAF6EF] min-h-screen text-[#101828] overflow-hidden">
       
       {/* ================= HEADER HERO SECTION ================= */}
-      <section className="relative overflow-hidden px-6 md:px-16 pt-[140px] md:pt-[160px] pb-[70px]">
+      <section className="relative overflow-hidden px-6 md:px-16 pt-35 md:pt-40 pb-17.5">
         
         {/* Soft Wine Radial Glow (Top-Right) */}
         <div
-          className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none opacity-20"
+          className="absolute top-0 right-0 w-125 h-125 pointer-events-none opacity-20"
           style={{
             background:
               "radial-gradient(circle at top right, #6E2C3E 0%, transparent 70%)",
@@ -106,7 +106,7 @@ const PracticeAreaDetail = ({ area, locale }) => {
             animate={{ scaleY: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             style={{ transformOrigin: "top" }}
-            className="hidden md:block w-[4px] self-stretch bg-[#6E2C3E] rounded-full shrink-0" 
+            className="hidden md:block w-1 self-stretch bg-[#6E2C3E] rounded-full shrink-0" 
           />
 
           <motion.div
@@ -129,23 +129,23 @@ const PracticeAreaDetail = ({ area, locale }) => {
               className="text-3xl md:text-[44px] font-bold text-[#101828] mb-4 leading-[1.15]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              {area?.title}
+              {area?.[locale]?.title}
             </h1>
 
-            <p className="font-sans text-[16px] md:text-[18px] leading-[1.7] text-[#5C6472] max-w-[680px]">
-              {area?.description}
+            <p className="font-sans text-[16px] md:text-[18px] leading-[1.7] text-[#5C6472] max-w-170">
+              {area?.[locale]?.description}
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* ================= BODY CONTENT SECTION ================= */}
-      <section className="px-6 md:px-16 pb-[90px] space-y-12">
+      <section className="px-6 md:px-16 pb-22.5 space-y-12">
         
         <BodySection 
           eyebrow="Overview" 
           heading="Introduction" 
-          text={area?.introduction} 
+          text={area?.[locale]?.introduction} 
         />
 
         <GoldDivider />
@@ -153,12 +153,12 @@ const PracticeAreaDetail = ({ area, locale }) => {
         <BodySection 
           eyebrow="Scope of Representation" 
           heading="Services Offered" 
-          text={area?.services} 
+          text={area?.[locale]?.services} 
         />
 
         {/* Key Areas Tag Chips */}
-        {area?.tags && area.tags.length > 0 && (
-          <div className="max-w-[720px] mx-auto pt-2">
+        {area?.[locale]?.tags && area?.[locale]?.tags.length > 0 && (
+          <div className="max-w-180 mx-auto pt-2">
             <p
               className="font-sans text-[11px] uppercase text-[#E3C98A] font-semibold mb-4 text-center md:text-left tracking-[2px]"
             >
@@ -166,7 +166,7 @@ const PracticeAreaDetail = ({ area, locale }) => {
             </p>
             
             <div className="flex flex-wrap gap-2.5 justify-center md:justify-start">
-              {area.tags.map((tag, i) => (
+              {area?.[locale]?.tags.map((tag, i) => (
                 <motion.span
                   key={tag}
                   initial={{ opacity: 0, scale: 0.88, y: 10 }}
@@ -189,7 +189,7 @@ const PracticeAreaDetail = ({ area, locale }) => {
         <BodySection 
           eyebrow="Common Scenarios" 
           heading="Client Situations" 
-          text={area?.clientSituations} 
+          text={area?.[locale]?.clientSituations} 
         />
 
         <GoldDivider />
@@ -197,7 +197,7 @@ const PracticeAreaDetail = ({ area, locale }) => {
         <BodySection 
           eyebrow="Methodology" 
           heading="Our Legal Approach" 
-          text={area?.ourApproach} 
+          text={area?.[locale]?.ourApproach} 
         />
 
         <GoldDivider />
@@ -205,12 +205,12 @@ const PracticeAreaDetail = ({ area, locale }) => {
         <BodySection 
           eyebrow="Ongoing Representation" 
           heading="Professional Support" 
-          text={area?.professionalSupport} 
+          text={area?.[locale]?.professionalSupport} 
         />
       </section>
 
       {/* ================= CLOSING CTA PANEL ================= */}
-      <section className="px-6 md:px-16 pb-[100px]">
+      <section className="px-6 md:px-16 pb-25">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -226,7 +226,7 @@ const PracticeAreaDetail = ({ area, locale }) => {
             }}
           />
 
-          <div className="relative z-10 max-w-[580px] mx-auto space-y-4">
+          <div className="relative z-10 max-w-145 mx-auto space-y-4">
             <h3
               className="text-2xl md:text-[32px] font-bold text-[#101828] leading-tight"
               style={{ fontFamily: "var(--font-heading)" }}

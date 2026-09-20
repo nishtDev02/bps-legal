@@ -39,10 +39,10 @@ const PracticeAreasListing = ({ locale }) => {
       >
         <Link
           href={`/${locale}/practice-areas/${area.slug}`}
-          className="group relative flex items-center justify-between gap-4 p-5 md:p-6 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-[#E3C98A]/15 hover:border-[#E3C98A]/50 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md"
+          className="group relative flex items-center justify-between gap-4 p-5 md:p-6 rounded-2xl bg-white/2 hover:bg-white/5 border border-[#E3C98A]/15 hover:border-[#E3C98A]/50 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-md"
         >
           {/* Active Left Gold Accent Line on Hover */}
-          <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#E3C98A] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center rounded-r" />
+          <span className="absolute left-0 top-0 bottom-0 w-0.75 bg-[#E3C98A] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center rounded-r" />
 
           {/* Left Block: Index, Icon, Title */}
           <div className="relative flex items-center gap-4 md:gap-5 min-w-0 z-10">
@@ -66,12 +66,12 @@ const PracticeAreasListing = ({ locale }) => {
                 className="text-[17px] md:text-[20px] font-semibold text-[#FAF6EF] group-hover:text-[#E3C98A] transition-colors truncate"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                {area.title}
+                {area[locale].title}
               </h3>
               
               {/* Teaser text visible on mobile too */}
               <p className="text-[13px] text-[#FAF6EF]/60 line-clamp-1 mt-0.5 font-sans">
-                {area.teaser}
+                {area[locale].teaser}
               </p>
             </div>
           </div>
@@ -97,11 +97,11 @@ const PracticeAreasListing = ({ locale }) => {
   };
 
   return (
-    <section className="relative bg-[#0E1524] px-6 md:px-16 pt-[140px] md:pt-[160px] pb-[100px] overflow-hidden text-[#FAF6EF]">
+    <section className="relative bg-[#0E1524] px-6 md:px-16 pt-35 md:pt-40 pb-25 overflow-hidden text-[#FAF6EF]">
       
       {/* Background Soft Gold Ambient Radial Glow */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none opacity-15"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 pointer-events-none opacity-15"
         style={{
           background: "radial-gradient(circle, rgba(227,201,138,0.3) 0%, transparent 70%)",
         }}
@@ -200,7 +200,7 @@ const PracticeAreasListing = ({ locale }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-14 p-6 md:p-8 rounded-2xl bg-linear-to-r from-[#E3C98A]/10 via-white/[0.02] to-[#E3C98A]/10 border border-[#E3C98A]/25 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left"
+          className="mt-14 p-6 md:p-8 rounded-2xl bg-linear-to-r from-[#E3C98A]/10 via-white/2 to-[#E3C98A]/10 border border-[#E3C98A]/25 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left"
         >
           <div>
             <h4 className="text-[17px] font-semibold text-[#FAF6EF]" style={{ fontFamily: "var(--font-heading)" }}>

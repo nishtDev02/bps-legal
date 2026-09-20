@@ -302,7 +302,7 @@ const Header = ({ locale }) => {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-white/80 hover:text-[#C6A75E] transition-colors"
             >
               <Globe size={14} />
-              <span>{locale === "en" ? "EN" : "हिन्दी"}</span>
+              <span>{locale === "en" ? "EN" : "HENG"}</span>
             </button>
 
             <button
