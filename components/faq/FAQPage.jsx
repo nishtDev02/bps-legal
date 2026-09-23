@@ -40,7 +40,7 @@ const FAQPage = ({ locale }) => {
     .map((group) => ({
       ...group,
       questions: group.questions.filter((q) =>
-        q.question.toLowerCase().includes(search.toLowerCase())
+        q[locale].question.toLowerCase().includes(search.toLowerCase())
       ),
     }))
     .filter((group) => group.questions.length > 0);
@@ -186,7 +186,7 @@ const FAQPage = ({ locale }) => {
                                   className="text-[13.5px] font-semibold text-[#1F2A44]"
                                   style={{ fontFamily: "var(--font-heading, serif)" }}
                                 >
-                                  {faq.question}
+                                  {faq[locale].question}
                                 </span>
 
                                 {/* Plus/Minus Badge */}
@@ -211,7 +211,7 @@ const FAQPage = ({ locale }) => {
                                     className="overflow-hidden"
                                   >
                                     <p className="px-5 pb-4 text-[11px] leading-[1.6] text-[#5C6472]">
-                                      {faq.answer}
+                                      {faq[locale].answer}
                                     </p>
                                   </motion.div>
                                 )}

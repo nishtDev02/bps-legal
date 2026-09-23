@@ -42,6 +42,14 @@ const Footer = ({ locale }) => {
     { label: "Immigration Law", href: `/${locale}/practice-areas/immigration-law` },
   ];
 
+  const legalLinks = [
+    { label: "Privacy Policy", href: `/${locale}/privacy-policy` },
+    { label: "Terms & Conditions", href: `/${locale}/terms` },
+    { label: "Disclaimer", href: `/${locale}/disclaimer` },
+    { label: "Cookie Policy", href: `/${locale}/cookie-policy` },
+    { label: "Refund Policy", href: `/${locale}/refund-policy` },
+  ];
+
   const socialLinks = [
     { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
     { icon: InstagramIcon, href: "#", label: "Instagram" },
@@ -63,7 +71,8 @@ const Footer = ({ locale }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Links Grid: Expanded to 5 columns for desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
           {/* Quick Links */}
           <div>
@@ -101,7 +110,30 @@ const Footer = ({ locale }) => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition"
+                    className="text-sm transition hover:opacity-100"
+                    style={{ color: "rgba(250,246,239,0.7)" }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Links */}
+          <div>
+            <h4
+              className="text-xs font-semibold uppercase mb-4"
+              style={{ color: "#E3C98A", letterSpacing: "1.5px" }}
+            >
+              Legal
+            </h4>
+            <ul className="space-y-[0.55rem]" style={{ lineHeight: "2.1" }}>
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm transition hover:opacity-100"
                     style={{ color: "rgba(250,246,239,0.7)" }}
                   >
                     {link.label}
@@ -121,12 +153,12 @@ const Footer = ({ locale }) => {
             </h4>
             <ul className="space-y-[0.55rem] text-sm" style={{ color: "rgba(250,246,239,0.7)" }}>
               <li>
-                <a href="tel:+919027380268" className="transition">
+                <a href="tel:+919027380268" className="transition hover:opacity-100">
                   +91 90273 80268
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@bpslegal.com" className="transition">
+                <a href="mailto:contact@bpslegal.com" className="transition hover:opacity-100">
                   contact@bpslegal.com
                 </a>
               </li>
@@ -162,7 +194,7 @@ const Footer = ({ locale }) => {
 
         </div>
 
-        {/* Office Locations (compact, kept from before) */}
+        {/* Office Locations */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8" style={{ borderTop: "1px solid rgba(227,201,138,0.15)" }}>
           {officeLocations.map((loc) => (
             <div key={loc.name}>
@@ -178,9 +210,24 @@ const Footer = ({ locale }) => {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6" style={{ borderTop: "1px solid rgba(227,201,138,0.15)" }}>
-          <p className="text-xs" style={{ color: "rgba(250,246,239,0.4)" }}>
-            © {new Date().getFullYear()} BPS Legal. All rights reserved. · Privacy Policy · Terms
-          </p>
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <p className="text-xs" style={{ color: "rgba(250,246,239,0.4)" }}>
+              © {new Date().getFullYear()} BPS Legal. All rights reserved.
+            </p>
+            <div className="flex flex-wrap gap-4 text-xs" style={{ color: "rgba(250,246,239,0.5)" }}>
+              <Link href={`/${locale}/privacy-policy`} className="hover:text-[#E3C98A] transition">
+                Privacy Policy
+              </Link>
+              <span>·</span>
+              <Link href={`/${locale}/terms-and-conditions`} className="hover:text-[#E3C98A] transition">
+                Terms & Conditions
+              </Link>
+              <span>·</span>
+              <Link href={`/${locale}/disclaimer`} className="hover:text-[#E3C98A] transition">
+                Disclaimer
+              </Link>
+            </div>
+          </div>
           <p className="text-[10px] italic mt-3" style={{ color: "rgba(250,246,239,0.35)" }}>
             The Bar Council of India does not permit advertisement or solicitation by advocates.
             This website is for informational purposes only and does not constitute an advertisement

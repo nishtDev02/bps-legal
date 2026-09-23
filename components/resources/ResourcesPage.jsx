@@ -110,7 +110,7 @@ const ResourcesPage = ({ locale }) => {
                   const Icon = iconMap[item.icon] || FileText;
                   return (
                     <div
-                      key={item.title}
+                      key={item[locale].title}
                       className="group bg-white border border-[#6E2C3E]/15 hover:border-[#E3C98A] rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
                     >
                       <div>
@@ -124,12 +124,12 @@ const ResourcesPage = ({ locale }) => {
                           className="text-[16px] font-semibold text-[#101828] mb-2 leading-snug group-hover:text-[#6E2C3E] transition-colors"
                           style={{ fontFamily: "var(--font-heading, serif)" }}
                         >
-                          {item.title}
+                          {item[locale].title}
                         </h3>
 
                         {/* Description */}
                         <p className="text-[#5C6472] text-[13.5px] leading-relaxed line-clamp-3 mb-6">
-                          {item.description}
+                          {item[locale].description}
                         </p>
                       </div>
 
@@ -183,7 +183,7 @@ const ResourcesPage = ({ locale }) => {
           <div className="bg-white rounded-2xl border border-[#6E2C3E]/15 p-6 md:p-8 shadow-xs divide-y divide-[#E3C98A]/40">
             {glossary.map((entry) => (
               <motion.div
-                key={entry.term}
+                key={entry[locale].term}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -195,12 +195,12 @@ const ResourcesPage = ({ locale }) => {
                     className="text-[#101828] font-bold text-[14.5px] block"
                     style={{ fontFamily: "var(--font-heading, serif)" }}
                   >
-                    {entry.term}
+                    {entry[locale].term}
                   </span>
                 </div>
                 <div className="sm:col-span-8">
                   <p className="text-[#5C6472] text-[13.5px] leading-relaxed">
-                    {entry.definition}
+                    {entry[locale].definition}
                   </p>
                 </div>
               </motion.div>
