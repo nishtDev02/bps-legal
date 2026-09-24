@@ -81,7 +81,7 @@ const ContactForm = ({ locale, t }) => {
           <div>
             <label
               htmlFor="name"
-              className="block text-[11px] font-bold text-[#1F2A44] uppercase tracking-wider mb-1"
+              className="block text-[11px] font-bold text-[#FFFFF0] uppercase tracking-wider mb-1"
             >
               Full Name <span className="text-[#C6A75E]">*</span>
             </label>
@@ -95,7 +95,7 @@ const ContactForm = ({ locale, t }) => {
                 name="name"
                 id="name"
                 required
-                placeholder="John Doe"
+                placeholder="Bhanu Pratap"
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full pl-10 pr-3.5 py-2.5 rounded-lg bg-white border border-[#C6A75E] text-[#1F2A44] text-xs placeholder:text-[#64748B] outline-none focus:ring-2 focus:ring-[#C6A75E]/40 transition-all"
@@ -107,7 +107,7 @@ const ContactForm = ({ locale, t }) => {
           <div>
             <label
               htmlFor="phone"
-              className="block text-[11px] font-bold text-[#1F2A44] uppercase tracking-wider mb-1"
+              className="block text-[11px] font-bold text-[#FFFFF0] uppercase tracking-wider mb-1"
             >
               Phone Number <span className="text-[#C6A75E]">*</span>
             </label>
@@ -137,7 +137,7 @@ const ContactForm = ({ locale, t }) => {
         <div>
           <label
             htmlFor="email"
-            className="block text-[11px] font-bold text-[#1F2A44] uppercase tracking-wider mb-1"
+            className="block text-[11px] font-bold text-[#FFFFF0] uppercase tracking-wider mb-1"
           >
             Email Address <span className="text-[#C6A75E]">*</span>
           </label>
@@ -153,7 +153,7 @@ const ContactForm = ({ locale, t }) => {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="john@example.com"
+              placeholder="bhanu@gmail.com"
               className="w-full pl-10 pr-3.5 py-2.5 rounded-lg bg-white border border-[#C6A75E] text-[#1F2A44] text-xs placeholder:text-[#64748B] outline-none focus:ring-2 focus:ring-[#C6A75E]/40 transition-all"
             />
           </div>
@@ -163,7 +163,7 @@ const ContactForm = ({ locale, t }) => {
         <div>
           <label
             htmlFor="caseType"
-            className="block text-[11px] font-bold text-[#1F2A44] uppercase tracking-wider mb-1"
+            className="block text-[11px] font-bold text-[#FFFFF0] uppercase tracking-wider mb-1"
           >
             Practice Area <span className="text-[#C6A75E]">*</span>
           </label>
@@ -199,7 +199,7 @@ const ContactForm = ({ locale, t }) => {
         <div>
           <label
             htmlFor="message"
-            className="block text-[11px] font-bold text-[#1F2A44] uppercase tracking-wider mb-1"
+            className="block text-[11px] font-bold text-[#FFFFF0] uppercase tracking-wider mb-1"
           >
             Message <span className="text-[#C6A75E]">*</span>
           </label>
