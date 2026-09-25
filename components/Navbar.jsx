@@ -2,26 +2,38 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X, Search, Globe, Phone, Mail, MessageCircle } from "lucide-react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
+import {
+  Menu,
+  X,
+  Search,
+  Globe,
+  Phone,
+  Mail,
+  MessageCircle,
+} from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 // Social Links Data for TopBar
 const socials = [
   {
-    label: "LinkedIn",
-    href: "#",
+    label: "WhatsApp",
+    href: "https://wa.me/919027380268",
     svg: (
       <>
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect width="4" height="12" x="2" y="9" />
-        <circle cx="4" cy="4" r="2" />
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+        <path d="M12.004 2c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.462 3.481 1.34 4.997L2 22l5.144-1.35a9.96 9.96 0 004.86 1.24h.004c5.514 0 9.997-4.483 9.997-9.997C21.997 6.483 17.518 2 12.004 2zm5.847 15.845a8.3 8.3 0 01-5.847 2.418h-.003a8.34 8.34 0 01-4.25-1.164l-.305-.181-3.152.827.842-3.075-.198-.315a8.32 8.32 0 01-1.276-4.44c0-4.596 3.741-8.337 8.34-8.337 2.226 0 4.318.868 5.892 2.443a8.28 8.28 0 012.442 5.892 8.3 8.3 0 01-2.485 5.932z" />
       </>
     ),
   },
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/adv_bhanu_pratap_sagar?stkn=MW1jMHhtYm43N2VzYw==",
     svg: (
       <>
         <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
@@ -148,12 +160,32 @@ const Header = ({ locale }) => {
   ];
 
   const practiceDropdown = [
-    { label: "Criminal Law", href: `/${locale}/practice-areas/criminal-law` },
     { label: "Cyber Law", href: `/${locale}/practice-areas/cyber-law` },
+    { label: "Criminal Law", href: `/${locale}/practice-areas/criminal-law` },
     { label: "Bail Matters", href: `/${locale}/practice-areas/bail-matters` },
-    { label: "FIR & Police Matters", href: `/${locale}/practice-areas/fir-matters` },
-    { label: "Cyber Fraud", href: `/${locale}/practice-areas/cyber-fraud` },
-    { label: "Legal Consultation", href: `/${locale}/practice-areas/legal-consultation` },
+    { label: "Family Law", href: `/${locale}/practice-areas/family-law` },
+    {
+      label: "Immigration Law",
+      href: `/${locale}/practice-areas/immigration-law`,
+    },
+    { label: "Consumer Law", href: `/${locale}/practice-areas/consumer-law` },
+    { label: "Corporate Law", href: `/${locale}/practice-areas/corporate-law` },
+    {
+      label: "Arbitration & ADR",
+      href: `/${locale}/practice-areas/arbitration-adr`,
+    },
+    {
+      label: "Legal Drafting & Documentation",
+      href: `/${locale}/practice-areas/legal-drafting-documentation`,
+    },
+    {
+      label: "Intellectual Property Rights (IPR)",
+      href: `/${locale}/practice-areas/ipr`,
+    },
+    {
+      label: "Cheque Bounce & NI",
+      href: `/${locale}/practice-areas/cheque-bounce-ni`,
+    },
   ];
 
   // Language Switch
@@ -204,22 +236,34 @@ const Header = ({ locale }) => {
 
           {/* Desktop Nav Links */}
           <ul className="hidden lg:flex items-center gap-7">
-            <motion.li initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
+            <motion.li
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+            >
               <Link
                 href={links[0].href}
                 className={`text-sm font-medium tracking-wide transition-colors ${
-                  pathname === links[0].href ? "text-[#C6A75E]" : "text-white/80 hover:text-[#C6A75E]"
+                  pathname === links[0].href
+                    ? "text-[#C6A75E]"
+                    : "text-white/80 hover:text-[#C6A75E]"
                 }`}
               >
                 {links[0].label}
               </Link>
             </motion.li>
 
-            <motion.li initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.14 }}>
+            <motion.li
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.14 }}
+            >
               <Link
                 href={links[1].href}
                 className={`text-sm font-medium tracking-wide transition-colors ${
-                  pathname === links[1].href ? "text-[#C6A75E]" : "text-white/80 hover:text-[#C6A75E]"
+                  pathname === links[1].href
+                    ? "text-[#C6A75E]"
+                    : "text-white/80 hover:text-[#C6A75E]"
                 }`}
               >
                 {links[1].label}
@@ -238,11 +282,20 @@ const Header = ({ locale }) => {
               <Link
                 href={`/${locale}/practice-areas`}
                 className={`flex items-center gap-1.5 text-sm font-medium tracking-wide transition-colors ${
-                  pathname.includes("practice-areas") ? "text-[#C6A75E]" : "text-white/80 hover:text-[#C6A75E]"
+                  pathname.includes("practice-areas")
+                    ? "text-[#C6A75E]"
+                    : "text-white/80 hover:text-[#C6A75E]"
                 }`}
               >
                 Practice Areas
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
               </Link>
@@ -284,7 +337,9 @@ const Header = ({ locale }) => {
                   <Link
                     href={link.href}
                     className={`text-sm font-medium tracking-wide transition-colors ${
-                      isActive ? "text-[#C6A75E]" : "text-white/80 hover:text-[#C6A75E]"
+                      isActive
+                        ? "text-[#C6A75E]"
+                        : "text-white/80 hover:text-[#C6A75E]"
                     }`}
                   >
                     {link.label}
@@ -322,7 +377,10 @@ const Header = ({ locale }) => {
               className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-md text-[#1F2A44] shadow-md shadow-[#C6A75E]/25 hover:opacity-90 hover:-translate-y-0.5 transition-all duration-200"
             >
               Book Consultation
-              <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>
+              <motion.span
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 1.4, repeat: Infinity }}
+              >
                 →
               </motion.span>
             </Link>
@@ -364,31 +422,37 @@ const Header = ({ locale }) => {
                   Menu
                 </p>
 
-                {[links[0], links[1], { label: "Practice Areas", href: `/${locale}/practice-areas` }, ...links.slice(2)].map(
-                  (link, i) => {
-                    const isActive = pathname === link.href;
-                    return (
-                      <motion.div
-                        key={link.href}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.05 }}
+                {[
+                  links[0],
+                  links[1],
+                  {
+                    label: "Practice Areas",
+                    href: `/${locale}/practice-areas`,
+                  },
+                  ...links.slice(2),
+                ].map((link, i) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05 }}
+                    >
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium transition-all ${
+                          isActive
+                            ? "bg-[#C6A75E]/10 text-[#C6A75E] border-l-4 border-[#C6A75E]"
+                            : "text-white/80 hover:bg-white/5 hover:text-[#C6A75E]"
+                        }`}
                       >
-                        <Link
-                          href={link.href}
-                          onClick={() => setIsOpen(false)}
-                          className={`flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium transition-all ${
-                            isActive
-                              ? "bg-[#C6A75E]/10 text-[#C6A75E] border-l-4 border-[#C6A75E]"
-                              : "text-white/80 hover:bg-white/5 hover:text-[#C6A75E]"
-                          }`}
-                        >
-                          {link.label}
-                        </Link>
-                      </motion.div>
-                    );
-                  }
-                )}
+                        {link.label}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
 
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -402,7 +466,9 @@ const Header = ({ locale }) => {
                     className="flex flex-col items-center gap-1 py-3 rounded-lg bg-white/5 hover:bg-[#C6A75E]/20 text-white/80 hover:text-[#C6A75E] transition"
                   >
                     <Globe size={18} />
-                    <span className="text-[10px]">{locale === "en" ? "EN" : "हिन्दी"}</span>
+                    <span className="text-[10px]">
+                      {locale === "en" ? "EN" : "हिन्दी"}
+                    </span>
                   </button>
                   <a
                     href="tel:+919027380268"
