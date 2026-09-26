@@ -131,7 +131,9 @@ const ArticleDetail = ({
                 {initials}
               </div>
               <div className="flex items-center gap-2 text-[#5C6472] text-xs font-medium">
-                <span className="text-[#101828] font-semibold">{blog.author}</span>
+                <span className="text-[#101828] font-semibold">
+                  {blog.author}
+                </span>
                 <span>•</span>
                 <span className="inline-flex items-center gap-1">
                   <Calendar size={12} className="text-[#6E2C3E]" />
@@ -318,7 +320,10 @@ const ArticleDetail = ({
       <section className="px-6 md:px-12 mt-8">
         <div className="max-w-180 mx-auto pt-5 border-t border-[#101828]/10">
           <p className="text-[#5C6472] text-[11px] leading-relaxed italic bg-[#EDE4D3]/30 p-3.5 rounded-lg border border-[#101828]/5">
-            <strong>Disclaimer:</strong> This article is published for general informational purposes only and does not constitute formal legal advice. Readers should consult a qualified legal practitioner regarding specific matters before taking action.
+            <strong>Disclaimer:</strong> This article is published for general
+            informational purposes only and does not constitute formal legal
+            advice. Readers should consult a qualified legal practitioner
+            regarding specific matters before taking action.
           </p>
         </div>
       </section>
@@ -337,7 +342,8 @@ const ArticleDetail = ({
               {blog.author}
             </p>
             <p className="text-[#C6A75E] text-xs mt-0.5 leading-normal">
-              Legal Practitioner specializing in Litigation, Corporate Law, and Constitutional Law across Delhi and High Courts.
+              Legal Practitioner specializing in Litigation, Corporate Law, and
+              Constitutional Law across Delhi and High Courts.
             </p>
           </div>
         </div>
@@ -407,33 +413,32 @@ const ArticleDetail = ({
       )}
 
       {/* 11. CLOSING CONSULTATION CTA */}
-      <section className="px-6 md:px-12 mt-14 pb-20">
-        <div className="max-w-190 mx-auto bg-[#6E2C3E] rounded-[20px] p-8 md:p-10 text-center shadow-xl relative overflow-hidden">
-          <div className="relative z-10">
-            <h3
-              className="text-[#FAF8F5] text-2xl md:text-3xl font-bold"
-              style={{ fontFamily: "var(--font-heading, serif)" }}
-            >
-              Need Tailored Legal Advice?
-            </h3>
-            <p className="text-[#C6A75E] text-sm md:text-base mt-2 max-w-md mx-auto">
-              Our team of experienced advocates is ready to assist you with dedicated counsel.
-            </p>
+      {/* FINAL CTA */}
+      <section className="px-6 md:px-16 mt-10 pb-20">
+        <div className="max-w-170 mx-auto bg-[#1F2A44] rounded-2xl p-6.5 text-center">
+          <h3
+            className="text-white text-base md:text-[17px] font-bold"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            Need legal guidance?
+          </h3>
+          <p className="text-[#C6A75E] text-[11px] mt-1">
+            Speak with our legal team.
+          </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-6">
-              <Link
-                href={`/${locale}/contact`}
-                className="w-full sm:w-auto bg-[#FAF8F5] text-[#6E2C3E] font-bold text-sm px-7 py-3 rounded-full hover:bg-[#C6A75E] hover:text-[#101828] transition-colors duration-200"
-              >
-                Book a Consultation
-              </Link>
-              <Link
-                href={`/${locale}/contact`}
-                className="w-full sm:w-auto border border-[#FAF8F5]/40 text-[#FAF8F5] font-semibold text-sm px-7 py-3 rounded-full hover:bg-[#FAF8F5]/10 transition-colors duration-200"
-              >
-                Contact Us
-              </Link>
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-5">
+            <Link
+              href={`/${locale}/contact`}
+              className="bg-[#C6A75E] text-[#1F2A44] font-semibold text-sm px-6 py-2.5 rounded-full hover:opacity-90 transition"
+            >
+              Book a Consultation
+            </Link>
+            <Link
+              href={`/${locale}/contact`}
+              className="border border-white text-white font-semibold text-sm px-6 py-2.5 rounded-full hover:bg-white/10 transition"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </section>

@@ -236,7 +236,7 @@ const FAQPage = ({ locale }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto bg-[#72233B] rounded-2xl p-8 md:p-10 text-center shadow-md"
+          className="max-w-3xl mx-auto bg-[#1F2A44] rounded-2xl p-8 md:p-10 text-center shadow-md"
         >
           <h3
             className="text-[#FAF8F5] text-xl sm:text-2xl font-bold"
