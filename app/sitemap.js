@@ -3,7 +3,7 @@ import connectDB from "@/lib/db";
 import Blog from "@/models/Blog";
 
 export default async function sitemap() {
-  const baseUrl = "https://bps-legal.vercel.app"; // change this when domain is available
+  const baseUrl = "https://advocatebhanupratapsagar.com"; // change this when domain is available
   const locales = ["en", "hinglish"];
 
   const staticPages = [

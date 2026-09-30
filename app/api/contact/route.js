@@ -9,7 +9,7 @@ const sendEmailNotification = async (body) => {
   try {
     // email notification
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "BPS Legal <noreply@advocatebhanupratapsagar.com>",
       to: process.env.ADMIN_EMAIL,
       subject: "New Consultation Request - BPS Legal",
       text: `You have a new consultation request from ${body.name} \nphone: ${body.phone} \nemail: ${body.email} \ncase type: ${body.caseType} \nmessage: ${body.message}`,

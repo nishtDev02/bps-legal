@@ -12,7 +12,7 @@ export const metadata = {
     template: "%s | BPS Legal",
   },
   description: "Trusted legal guidance for individuals, businesses, and NRIs across India — specializing in Criminal Law and Cyber Law.",
-  metadataBase: new URL("https://bps-legal.vercel.app")
+  metadataBase: new URL("https://advocatebhanupratapsagar.com")
 }
 
 
