@@ -158,7 +158,7 @@ const Footer = ({ locale }) => {
               </li>
               <li>
                 <a href="mailto:contact@bpslegal.com" className="transition hover:opacity-100">
-                  contact@bpslegal.com
+                  advbhanu11@gmail.com
                 </a>
               </li>
             </ul>

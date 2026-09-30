@@ -75,7 +75,7 @@ const TopBar = () => {
             className="flex items-center gap-1.5 transition-colors"
           >
             <Mail size={13} className="text-[#C6A75E]" />
-            contact@bpslegal.com
+            advbhanu11@gmail.com
           </motion.a>
         </div>
 
