@@ -70,7 +70,7 @@ const TopBar = () => {
             +91 90273 80268
           </motion.a>
           <motion.a
-            href="mailto:contact@bpslegal.com"
+            href="mailto:advbhanu11@gmail.com"
             whileHover={{ x: 3, color: "#C6A75E" }}
             className="flex items-center gap-1.5 transition-colors"
           >
